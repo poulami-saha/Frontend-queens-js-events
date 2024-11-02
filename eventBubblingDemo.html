@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Bubbling & Capturing Leading to Event Propagation</title>
+  </head>
+  <body>
+    <div id="parent">
+      <button id="child">Click the Child</button>
+    </div>
+
+    <script>
+      const child = document.getElementById("child");
+      const parent = document.getElementById("parent");
+
+      const clickHandler = (text) => {
+        //event.stopPropagation();
+        console.log(`I am the ${text}`);
+      };
+
+      child.addEventListener("click", () => clickHandler("Child"));
+      parent.addEventListener("click", () => clickHandler("Parent"));
+      //To Enable the Event Capture
+      //parent.addEventListener("click", () => clickHandler("Parent"), true);
+    </script>
+  </body>
+</html>
